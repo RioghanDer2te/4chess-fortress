@@ -13,4 +13,4 @@ Should you prefer the official promotion rule you can simply change the allowed 
 
 \
 Starting position:
-![Starting position](4chess.png)
+![Starting position](chess.png)
