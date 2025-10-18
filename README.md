@@ -8,7 +8,7 @@ Specialties of this chess variant:
 - **Queen with additional movement**: The Queen can now also move like a horse.
 - **Fortress**: In the four corners of the board exists a fortress with reserve troops. The drawn in wall can't be crossed.
 - **Freeze**: If a player is checkmated, they're merely frozen until they're either rescued or the whole team is checkmated.
-- **Promotion**: Unlike the mentioned rule that promotion is only available at the other side of the board (or the first rank of the enemy pieces) this implementation allows promotion on every field after the 8th rank of every respective color (e.g. black can start promoting with the J file, grey can start promoting with the 10th rank), all the way until the end (including the fortresses). \
+- **Promotion**: Unlike the mentioned rule that promotion is only available at the other side of the board (or the first rank of the enemy pieces) this implementation allows promotion on every field after the 8th rank of every respective color (e.g. black can start promoting with the `J` file, grey can start promoting with the 10th rank), all the way until the end (including the fortresses). \
 Should you prefer the official promotion rule you can simply change the allowed promotion squares in `Board.get_pawn_promotion_rank` to `N12` - `N05`, `E14` - `L14` and `E3` - `L03`
 
 \
