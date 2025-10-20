@@ -1,7 +1,7 @@
 import itertools
 from typing import Union, Optional, List, Iterable
 
-from utils import list_in_list, str_range, make_iter, chunk_list
+from .utils import list_in_list, str_range, make_iter, chunk_list
 
 
 class CheckErrorMsg:
