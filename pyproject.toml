@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling >= 1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chess4-fortress"
+version = "1.0"
+authors = [
+    {name="RioghanDer2te", email="rioghanmaiu@gmail.com"},
+]
+description = "4 Player Chess - Fortress Variant; Logic only"
+readme = "README.md"
+# requires-python = ""
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Natural Language :: English",
+    "Intended Audience :: Developers",
+    "Topic :: Games/Entertainment :: Board Games",
+    "Topic :: Games/Entertainment :: Turn Based Strategy",
+]
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/RioghanDer2te/4chess-fortress"
+Issues = "https://github.com/RioghanDer2te/4chess-fortress/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/chess4-fortress"]
