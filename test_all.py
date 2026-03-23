@@ -30,7 +30,7 @@ class TestCollision:
         assert board.is_valid(move)[0] is False
 
 
-def test_long_bishop_capture(self):
+def test_long_bishop_capture():
     board = Board()
     assert board.turn.lower() == "white"  # this test only applies for white
     board.get_square("E13").piece_at = None
