@@ -27,5 +27,5 @@ license-files = ["LICENSE"]
 Homepage = "https://github.com/RioghanDer2te/4chess-fortress"
 Issues = "https://github.com/RioghanDer2te/4chess-fortress/issues"
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/chess4-fortress"]
+#[tool.hatch.build.targets.wheel]
+#packages = ["src/chess4-fortress"]

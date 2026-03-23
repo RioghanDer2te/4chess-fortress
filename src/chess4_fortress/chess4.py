@@ -1,7 +1,7 @@
 import itertools
 from typing import Union, Optional, List, Iterable
 
-from utils import list_in_list, str_range, make_iter, chunk_list
+from .utils import list_in_list, str_range, make_iter, chunk_list
 
 
 class CheckErrorMsg:
@@ -289,7 +289,7 @@ class Board:
         self.move_stack.append(move)
         self.next_turn()
 
-    def is_valid(self, move: "Move", ignore_turn=False, ignore_check=False) -> tuple:
+    def is_valid(self, move: "Move", ignore_turn=False, ignore_team_check=False) -> tuple:
         """Check if a Move is valid, if not Return an appropriate error message."""
         if move.to_square is None:
             return False, CheckErrorMsg.SquareToOutOfBounds
@@ -376,11 +376,11 @@ class Board:
             move.checks = {king_sq.piece_at.color: Move.check_check(self, king_sq) for king_sq in self.get_kings(ignore=ignore)}
             self.layout = tmp
 
-            if not ignore_check and move.checks.get(move.from_square.piece_at.color, True):
+            if move.checks.get(move.from_square.piece_at.color, True):
                 return False, CheckErrorMsg.CheckmateYourself
 
             c = (set(team) - {move.from_square.piece_at.color}).pop()
-            if not ignore_check and move.checks.get(c, True) and not self.checked.get(c, False):
+            if not ignore_team_check and move.checks.get(c, True) and not self.checked.get(c, False):
                 return False, CheckErrorMsg.CheckmateTeammate
 
         return True, move.checks
@@ -612,6 +612,6 @@ class Move:
                 promotion = square.piece_at.type == "pawn" and possible_square.position in Board.get_pawn_promotion_rank(square.piece_at.color)
                 for c in range(2 if promotion else 1):  # run this once, if promotion: repeat it
                     move = cls(square, possible_square, promotion=Piece("queen", color) if promotion and c else None)
-                    if board.is_valid(move, ignore_turn=True, ignore_check=True)[0]:
+                    if board.is_valid(move, ignore_turn=True, ignore_team_check=True)[0]:
                         pm.append(move)
         return pm
